@@ -1,29 +1,40 @@
 /* ========== CSS Variables ========== */
 :root {
+    /* Light Mode (Matcha Theme) */
     --bg-color: #F4F7F4;
-    /* Soft creamy green */
     --text-main: #2A362B;
-    /* Dark moss green */
     --text-muted: #5E7260;
-    /* Muted leaf green */
     --primary: #799C7A;
-    /* Elegant Matcha green */
     --primary-hover: #608061;
-    /* Deeper Matcha */
     --secondary: #B2C8BA;
-    /* Bright pale green */
     --card-bg: rgba(255, 255, 255, 0.65);
     --card-hover: rgba(255, 255, 255, 0.95);
     --glass-border: rgba(255, 255, 255, 0.8);
     --shadow-sm: 0 4px 12px rgba(42, 54, 43, 0.05);
     --shadow-md: 0 10px 30px rgba(42, 54, 43, 0.08);
     --shadow-lg: 0 20px 40px rgba(42, 54, 43, 0.12);
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
     --radius-full: 9999px;
     --font-main: 'Outfit', sans-serif;
     --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --transition-smooth: all 0.3s ease;
+}
+
+/* Dark Mode Theme */
+:root.dark-mode {
+    --bg-color: #121A14;
+    --text-main: #E2E8E4;
+    --text-muted: #9BAE9D;
+    --primary: #86A788;
+    --primary-hover: #A3C2A5;
+    --secondary: #2C3E30;
+    --card-bg: rgba(30, 42, 33, 0.65);
+    --card-hover: rgba(36, 50, 40, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* ========== Base Styles ========== */
@@ -43,11 +54,11 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
     /* Soft noise background effect */
     background-image: radial-gradient(var(--secondary) 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: 0 0;
-    background-color: var(--bg-color);
 }
 
 .container {
@@ -62,6 +73,7 @@ h3,
 h4 {
     line-height: 1.2;
     color: var(--text-main);
+    transition: color 0.5s ease;
 }
 
 a {
@@ -81,6 +93,33 @@ button {
     font-family: inherit;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    z-index: 9999;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    background: var(--primary);
+    color: white;
+}
+
 /* ========== Utility Classes ========== */
 .highlight {
     color: var(--primary);
@@ -95,11 +134,11 @@ button {
     left: 0;
     width: 100%;
     height: 12px;
-    background-color: rgba(178, 200, 186, 0.5);
-    /* secondary green */
+    background-color: var(--secondary);
     z-index: -1;
     border-radius: 4px;
     transform: skewX(-15deg);
+    opacity: 0.5;
 }
 
 .highlight-text {
@@ -110,14 +149,18 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(121, 156, 122, 0.15);
-    /* light matcha bg */
+    background-color: var(--secondary);
     color: var(--primary);
     padding: 6px 16px;
     border-radius: var(--radius-full);
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+:root.dark-mode .badge {
+    background-color: rgba(121, 156, 122, 0.2);
 }
 
 .btn {
@@ -132,13 +175,11 @@ button {
     font-size: 1.1rem;
     transition: var(--transition-smooth);
     box-shadow: 0 8px 20px rgba(121, 156, 122, 0.3);
-    /* matcha shadow */
 }
 
 .btn:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(121, 156, 122, 0.4);
 }
 
 /* ========== Hero Section ========== */
@@ -160,11 +201,12 @@ button {
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(178, 200, 186, 0.3) 0%, rgba(121, 156, 122, 0.1) 50%, transparent 70%);
+    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
     z-index: -1;
     border-radius: 50%;
     filter: blur(60px);
     animation: pulse 8s ease-in-out infinite alternate;
+    opacity: 0.6;
 }
 
 .hero-content {
@@ -201,7 +243,8 @@ button {
 
 .floating-paws i {
     position: absolute;
-    color: rgba(121, 156, 122, 0.15);
+    color: var(--primary);
+    opacity: 0.15;
     font-size: 3rem;
 }
 
@@ -228,7 +271,7 @@ button {
     animation: float 7s ease-in-out infinite;
 }
 
-/* ========== Gallery Section ========== */
+/* ========== Gallery Section (Bento Grid) ========== */
 .gallery {
     padding: 80px 0 120px;
 }
@@ -249,13 +292,15 @@ button {
     font-size: 1.1rem;
 }
 
+/* Bento Grid System */
 .cat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 260px;
+    gap: 24px;
 }
 
-/* Cat Card (Glassmorphism) */
+/* Cat Card (Glassmorphism & 3D Tilt container) */
 .cat-card {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
@@ -263,25 +308,31 @@ button {
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    padding: 16px;
-    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
     box-shadow: var(--shadow-sm);
     cursor: pointer;
+    /* 3D Transform properties managed by JS */
+    transform-style: preserve-3d;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease-out;
 }
 
 .cat-card:hover {
-    transform: translateY(-10px) scale(1.02);
     background: var(--card-hover);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-color: rgba(121, 156, 122, 0.4);
+    z-index: 2;
 }
 
 .card-img {
     position: relative;
-    border-radius: var(--radius-md);
+    width: 100%;
+    flex: 1;
+    /* Take up available height */
     overflow: hidden;
-    aspect-ratio: 1/1;
-    /* Mengubah menjadi persegi agar pas dan sejajar */
+    /* TranslateZ to pop out in 3D */
+    transform: translateZ(30px);
+    transition: transform 0.3s ease;
 }
 
 .card-img img {
@@ -289,19 +340,17 @@ button {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    /* Memastikan foto presisi di tengah */
     transition: transform 0.6s ease;
 }
 
 .cat-card:hover .card-img img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .img-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(42, 54, 43, 0.4);
-    /* moss green overly */
+    background: rgba(42, 54, 43, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -315,7 +364,7 @@ button {
 
 .view-btn {
     background: white;
-    color: var(--text-main);
+    color: #2A362B;
     padding: 12px 24px;
     border-radius: var(--radius-full);
     font-weight: 600;
@@ -331,8 +380,12 @@ button {
 }
 
 .card-info {
-    padding: 20px 8px 8px;
+    padding: 20px;
     text-align: center;
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    /* Pop out in 3D */
+    transform: translateZ(40px);
 }
 
 .card-info h3 {
@@ -343,6 +396,102 @@ button {
 .card-info .trait {
     color: var(--text-muted);
     font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Bento Grid Placements for Desktop */
+@media (min-width: 900px) {
+    .cat-card:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    /* Haru (Large) */
+    .cat-card:nth-child(2) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Hiro */
+    .cat-card:nth-child(3) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Jojo */
+    .cat-card:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    /* Hani (Wide) */
+    .cat-card:nth-child(5) {
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    /* Blacky (Tall) */
+    .cat-card:nth-child(6) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Lolly */
+    .cat-card:nth-child(7) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    /* Cherry (Wide) */
+    .cat-card:nth-child(8) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Panda */
+    .cat-card:nth-child(9) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Oliver */
+
+    /* Make large card text bigger */
+    .cat-card:nth-child(1) .card-info h3 {
+        font-size: 2rem;
+    }
+
+    .cat-card:nth-child(1) .card-info {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 899px) and (min-width: 600px) {
+    .cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cat-card:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .cat-card:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .cat-card:nth-child(7) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 599px) {
+    .cat-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 350px;
+    }
 }
 
 /* ========== Modal ========== */
@@ -356,49 +505,55 @@ button {
     padding: 24px;
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition-smooth);
+    transition: visibility 0s linear 0.4s, opacity 0.4s ease;
 }
 
 .modal.active {
     opacity: 1;
     visibility: visible;
+    transition-delay: 0s;
 }
 
 .modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(15, 23, 20, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .modal-content {
     position: relative;
-    background: white;
+    background: var(--bg-color);
     width: 100%;
     max-width: 900px;
     border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
     overflow: hidden;
     display: flex;
     box-shadow: var(--shadow-lg);
-    transform: scale(0.95) translateY(20px);
-    transition: var(--transition);
+    transform: scale(0.8) translateY(40px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Bounce effect */
     max-height: 90vh;
 }
 
 .modal.active .modal-content {
     transform: scale(1) translateY(0);
+    opacity: 1;
 }
 
 .close-btn {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -410,8 +565,9 @@ button {
 }
 
 .close-btn:hover {
-    background: #f1f5f9;
-    transform: rotate(90deg);
+    background: var(--primary);
+    color: white;
+    transform: rotate(90deg) scale(1.1);
 }
 
 .modal-body {
@@ -429,6 +585,7 @@ button {
 .modal-img {
     width: 100%;
     height: 300px;
+    background: var(--card-bg);
 }
 
 @media (min-width: 768px) {
@@ -444,7 +601,6 @@ button {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    /* Presisi di tengah untuk gambar pop-up */
 }
 
 .modal-info {
@@ -477,7 +633,8 @@ button {
     gap: 16px;
     margin-bottom: 32px;
     padding: 24px;
-    background: #f8fafc;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
 }
 
@@ -490,13 +647,18 @@ button {
 .stat i {
     font-size: 1.5rem;
     color: var(--primary);
-    background: rgba(121, 156, 122, 0.15);
+    background: var(--secondary);
+    opacity: 0.9;
     width: 48px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
+}
+
+:root.dark-mode .stat i {
+    background: rgba(121, 156, 122, 0.15);
 }
 
 .stat-label {
@@ -510,11 +672,13 @@ button {
 .stat-value {
     font-weight: 700;
     font-size: 1.1rem;
+    color: var(--text-main);
 }
 
 .modal-desc h3 {
     font-size: 1.25rem;
     margin-bottom: 12px;
+    color: var(--text-main);
 }
 
 .modal-desc p {
@@ -524,10 +688,10 @@ button {
 
 /* ========== Footer ========== */
 footer {
-    background: white;
+    background: var(--bg-color);
     padding: 40px 0;
     text-align: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--glass-border);
 }
 
 .footer-content {
@@ -575,8 +739,8 @@ footer {
 /* Scroll Animations */
 .fade-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-up.visible {
@@ -594,16 +758,4 @@ footer {
 
 .delay-3 {
     transition-delay: 0.3s;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .cat-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    .hero {
-        padding: 100px 20px 60px;
-    }
 }
