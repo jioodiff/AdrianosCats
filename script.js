@@ -8,7 +8,7 @@ const catData = {
         desc: "Sebagai kucing tertua bersama Hiro, Haru sering kali tertangkap basah sedang mengganggu dan membully Hiro. Meski terlihat tangguh dan galak di luar, dia sebenarnya punya sisi manja yang hanya ditunjukkan pada orang tertentu.",
         img: "images/haru.jpg",
         category: "boss",
-        gallery: ["images/haru.jpg", "images/haru.jpg", "images/haru.jpg"] // Ganti dengan foto mini album Haru
+        gallery: ["images/haru1.jpg", "images/haru2.jpg", "images/haru3.jpg"] // Ganti dengan foto mini album Haru
     },
     2: {
         name: "Hiro",
@@ -18,7 +18,7 @@ const catData = {
         desc: "Hiro adalah kucing yang sangat sabar dan sering mengalah saat diganggu Haru. Daripada melawan, dia lebih suka menghabiskan waktunya mencari tempat persembunyian yang nyaman dan aman untuk tidur siang dengan tenang.",
         img: "images/hiro.jpg",
         category: "kalem",
-        gallery: ["images/hiro.jpg", "images/hiro.jpg", "images/hiro.jpg"] // Ganti dengan foto mini album Hiro
+        gallery: ["images/hiro1.jpg", "images/hiro2.jpg", "images/hiro3.jpg"] // Ganti dengan foto mini album Hiro
     },
     3: {
         name: "Jojo",
@@ -28,7 +28,7 @@ const catData = {
         desc: "Tidak ada sudut rumah yang luput dari pantauan Jojo. Sebagai jagoan sejati, dia selalu berpatroli ke setiap ruangan untuk memastikan wilayah kekuasaannya aman dari penyusup, termasuk dari cicak yang numpang lewat.",
         img: "images/jojo.jpg",
         category: "aktif",
-        gallery: ["images/jojo.jpg", "images/jojo.jpg", "images/jojo.jpg"] // Ganti dengan foto mini album Jojo
+        gallery: ["images/jojo1.jpg", "images/jojo2.jpg", "images/jojo3.jpg"] // Ganti dengan foto mini album Jojo
     },
     4: {
         name: "Hani",
@@ -38,7 +38,7 @@ const catData = {
         desc: "Pecinta makanan sejati! Hani memiliki tubuh yang paling gembul berkat hobinya menghabiskan sisa makanan kucing lain. Meski begitu, pelukannya adalah yang paling hangat dan empuk di rumah ini.",
         img: "images/hani.jpg",
         category: "kalem",
-        gallery: ["images/hani.jpg", "images/hani.jpg", "images/hani.jpg"] // Ganti dengan foto mini album Hani
+        gallery: ["images/hani1.jpg", "images/hani2.jpg", "images/hani3.jpg"] // Ganti dengan foto mini album Hani
     },
     5: {
         name: "Blacky",
@@ -48,7 +48,7 @@ const catData = {
         desc: "Meskipun bukan yang paling tua, aura Blacky memancarkan kepemimpinan mutlak. Semua kucing segan padanya saat dia sedang diam mengawasi dari tempat tertinggi di ruang tamu.",
         img: "images/blacky.jpg",
         category: "boss",
-        gallery: ["images/blacky.jpg", "images/blacky.jpg", "images/blacky.jpg"] // Ganti dengan foto mini album Blacky
+        gallery: ["images/blacky1.jpg", "images/blacky2.jpg", "images/blacky3.jpg"] // Ganti dengan foto mini album Blacky
     },
     6: {
         name: "Lolly",
@@ -58,7 +58,7 @@ const catData = {
         desc: "Lolly sangat menikmati me-time nya. Dia lebih suka menyendiri di dalam kardus bekas paket atau bersembunyi di bawah meja. Dia butuh waktu untuk percaya pada orang baru, namun sangat setia pada pemiliknya.",
         img: "images/lolly.jpg",
         category: "kalem",
-        gallery: ["images/lolly.jpg", "images/lolly.jpg", "images/lolly.jpg"] // Ganti dengan foto mini album Lolly
+        gallery: ["images/lolly1.jpg", "images/lolly2.jpg", "images/lolly3.jpg"] // Ganti dengan foto mini album Lolly
     },
     7: {
         name: "Cherry",
@@ -68,7 +68,7 @@ const catData = {
         desc: "Dengan bulu orennya yang bersih dan bersinar, Cherry tahu persis bahwa dia sangat cantik. Dia sangat menjaga penampilannya dan tidak segan untuk memamerkan pesonanya saat ada tamu datang.",
         img: "images/cherry.jpg",
         category: "aktif",
-        gallery: ["images/cherry.jpg", "images/cherry.jpg", "images/cherry.jpg"] // Ganti dengan foto mini album Cherry
+        gallery: ["images/cherry1.jpg", "images/cherry2.jpg", "images/cherry3.jpg"] // Ganti dengan foto mini album Cherry
     },
     8: {
         name: "Panda",
@@ -78,7 +78,7 @@ const catData = {
         desc: "Kapan pun ada kesempatan, Panda akan melakukan segala cara untuk mendapatkan perhatian Anda. Mulai dari mengeong keras tanpa alasan hingga sengaja menjatuhkan barang kesayangan Anda dari meja.",
         img: "images/panda.jpg",
         category: "aktif",
-        gallery: ["images/panda.jpg", "images/panda.jpg", "images/panda.jpg"] // Ganti dengan foto mini album Panda
+        gallery: ["images/panda1.jpg", "images/panda2.jpg", "images/panda3.jpg"] // Ganti dengan foto mini album Panda
     },
     9: {
         name: "Oliver",
@@ -88,14 +88,14 @@ const catData = {
         desc: "Sebagai kucing termuda, energi Oliver seperti baterai yang tidak pernah habis. Dia selalu lari ke sana kemari dan mengajak kucing yang lebih tua untuk bermain, meskipun ajakannya lebih sering diabaikan.",
         img: "images/oliver.jpg",
         category: "aktif",
-        gallery: ["images/oliver.jpg", "images/oliver.jpg", "images/oliver.jpg"] // Ganti dengan foto mini album Oliver
+        gallery: ["images/oliver1.jpg", "images/oliver2.jpg", "images/oliver3.jpg"] // Ganti dengan foto mini album Oliver
     }
 };
 
 // Daily Moments Data (Placeholder)
 const dailyMoments = [
-    "images/haru.jpg", "images/hiro.jpg", "images/jojo.jpg", 
-    "images/hani.jpg", "images/blacky.jpg", "images/oliver.jpg"
+    "images/haru4.jpg", "images/hiro4.jpg", "images/jojo4.jpg",
+    "images/hani4.jpg", "images/blacky4.jpg", "images/oliver4.jpg"
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     catCards.forEach(card => {
         const id = card.getAttribute('data-id');
         const infoDiv = card.querySelector('.card-info');
-        
+
         // Add data-category for filtering
         card.setAttribute('data-category', catData[id].category);
 
