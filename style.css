@@ -803,19 +803,17 @@ footer {
     object-position: center 20%;
 }
 
-/* ========== Daily Moments Masonry ========== */
+/* ========== Daily Moments Gallery ========== */
 .daily-moments {
     padding: 60px 0 100px;
 }
 .masonry-grid {
-    column-count: 1;
-    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
 }
-@media (min-width: 600px) { .masonry-grid { column-count: 2; } }
-@media (min-width: 900px) { .masonry-grid { column-count: 3; } }
 .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 20px;
+    aspect-ratio: 1; /* Membuat semua foto jadi persegi yang seragam */
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--card-bg);
@@ -829,5 +827,8 @@ footer {
 }
 .masonry-item img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
     display: block;
 }
