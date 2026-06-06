@@ -22,6 +22,14 @@
 
 <body>
 
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="paw-loader">
+            <i class="fa-solid fa-paw"></i>
+        </div>
+        <p>Loading Pawsomeness...</p>
+    </div>
+
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
         <i class="fa-solid fa-moon"></i>
@@ -56,6 +64,14 @@
             <div class="section-header fade-up">
                 <h2>Our <span class="highlight-text">Pawsome</span> Crew</h2>
                 <p>Klik profil mereka untuk mengetahui kepribadian unik masing-masing!</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container fade-up delay-1">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="aktif">Si Aktif</button>
+                <button class="filter-btn" data-filter="kalem">Si Kalem</button>
+                <button class="filter-btn" data-filter="boss">Da Boss</button>
             </div>
 
             <div class="cat-grid">
@@ -222,10 +238,30 @@
                         <h3>Tentang</h3>
                         <p id="modal-description">Deskripsi kucing akan muncul di sini.</p>
                     </div>
+                    
+                    <div class="modal-gallery">
+                        <h3>Mini Gallery</h3>
+                        <div class="mini-gallery-grid" id="mini-gallery">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Daily Moments Section -->
+    <section class="daily-moments" id="moments">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Daily <span class="highlight-text">Moments</span></h2>
+                <p>Sekilas tentang keseruan hari-hari mereka di rumah.</p>
+            </div>
+            <div class="masonry-grid" id="masonry-gallery">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>

@@ -759,3 +759,163 @@ footer {
 .delay-3 {
     transition-delay: 0.3s;
 }
+
+/* ========== Preloader ========== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.paw-loader {
+    font-size: 4rem;
+    color: var(--primary);
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 20px;
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ========== Filters ========== */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.filter-btn {
+    padding: 8px 24px;
+    border-radius: var(--radius-full);
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+.cat-card.hide {
+    display: none;
+}
+
+/* ========== Pet Button ========== */
+.pet-btn-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+.pet-btn {
+    background: rgba(121, 156, 122, 0.1);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+:root.dark-mode .pet-btn {
+    background: rgba(121, 156, 122, 0.2);
+}
+.pet-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+.pet-btn:active {
+    transform: scale(0.95);
+}
+.heart-anim {
+    position: absolute;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+}
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-40px) scale(1.5); }
+}
+
+/* ========== Mini Gallery in Modal ========== */
+.modal-gallery {
+    margin-top: 32px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 24px;
+}
+.modal-gallery h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+.mini-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+.mini-gallery-item {
+    aspect-ratio: 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--secondary);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition-smooth);
+}
+.mini-gallery-item:hover {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+.mini-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========== Daily Moments Masonry ========== */
+.daily-moments {
+    padding: 60px 0 100px;
+}
+.masonry-grid {
+    column-count: 1;
+    column-gap: 20px;
+}
+@media (min-width: 600px) { .masonry-grid { column-count: 2; } }
+@media (min-width: 900px) { .masonry-grid { column-count: 3; } }
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+.masonry-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+.masonry-item img {
+    width: 100%;
+    display: block;
+}
