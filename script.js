@@ -95,7 +95,7 @@ const catData = {
 // Daily Moments Data (Placeholder)
 const dailyMoments = [
     "images/haru4.jpg", "images/hiro4.jpg", "images/jojo4.jpg",
-    "images/hani4.jpg", "images/blacky4.jpg", "images/oliver4.jpg"
+    "images/lolly4.jpg", "images/blacky4.jpg", "images/oliver4.jpg"
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
