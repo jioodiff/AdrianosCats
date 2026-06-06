@@ -326,7 +326,7 @@ button {
 .card-img {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1; /* Diubah menjadi kotak sempurna (1:1) agar foto lebih panjang ke bawah dan wajah kucing tidak banyak terpotong */
     overflow: hidden;
     /* TranslateZ to pop out in 3D */
     transform: translateZ(30px);
@@ -813,7 +813,7 @@ footer {
     gap: 24px;
 }
 .masonry-item {
-    aspect-ratio: 1; /* Membuat semua foto jadi persegi yang seragam */
+    aspect-ratio: 3 / 4; /* Membuat semua foto memanjang ke bawah (portrait) yang seragam */
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--card-bg);
