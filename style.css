@@ -292,12 +292,11 @@ button {
     font-size: 1.1rem;
 }
 
-/* Bento Grid System */
+/* Uniform Responsive Grid System */
 .cat-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 260px;
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 /* Cat Card (Glassmorphism & 3D Tilt container) */
@@ -327,8 +326,7 @@ button {
 .card-img {
     position: relative;
     width: 100%;
-    flex: 1;
-    /* Take up available height */
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     /* TranslateZ to pop out in 3D */
     transform: translateZ(30px);
@@ -339,7 +337,7 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 20%; /* Mencegah kepala terpotong */
     transition: transform 0.6s ease;
 }
 
@@ -399,98 +397,11 @@ button {
     font-weight: 500;
 }
 
-/* Bento Grid Placements for Desktop */
-@media (min-width: 900px) {
-    .cat-card:nth-child(1) {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    /* Haru (Large) */
-    .cat-card:nth-child(2) {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* Hiro */
-    .cat-card:nth-child(3) {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* Jojo */
-    .cat-card:nth-child(4) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    /* Hani (Wide) */
-    .cat-card:nth-child(5) {
-        grid-column: span 1;
-        grid-row: span 2;
-    }
-
-    /* Blacky (Tall) */
-    .cat-card:nth-child(6) {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* Lolly */
-    .cat-card:nth-child(7) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    /* Cherry (Wide) */
-    .cat-card:nth-child(8) {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* Panda */
-    .cat-card:nth-child(9) {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    /* Oliver */
-
-    /* Make large card text bigger */
-    .cat-card:nth-child(1) .card-info h3 {
-        font-size: 2rem;
-    }
-
-    .cat-card:nth-child(1) .card-info {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 899px) and (min-width: 600px) {
-    .cat-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .cat-card:nth-child(1) {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    .cat-card:nth-child(4) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    .cat-card:nth-child(7) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-}
-
+/* Grid Placements dihapus karena menggunakan uniform grid */
 @media (max-width: 599px) {
     .cat-grid {
         grid-template-columns: 1fr;
-        grid-auto-rows: 350px;
+        gap: 24px;
     }
 }
 
@@ -600,7 +511,7 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 20%;
 }
 
 .modal-info {
@@ -889,6 +800,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
 }
 
 /* ========== Daily Moments Masonry ========== */
